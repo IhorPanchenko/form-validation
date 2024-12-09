@@ -1,15 +1,17 @@
-import { FC } from "react";
+import { FC, InputHTMLAttributes } from "react";
 import "../styles/formInput.scss";
 
-interface FormInputProps {
-  placeholder: string;
+interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
 }
 
 const FormInput: FC<FormInputProps> = (props) => {
+  const { label, onChange, ...inputProps } = props;
+
   return (
     <div className="formInput">
-      {/* <label>Username</label> */}
-      <input placeholder={props.placeholder} />
+      <label>{label}</label>
+      <input {...inputProps} onChange={onChange} />
     </div>
   );
 };
