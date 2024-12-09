@@ -20,13 +20,19 @@ const App: FC = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  console.log(values);
+  // Dynamically set the pattern for confirmPassword based on values.password
+  const updatedInputs = inputs.map((input) => {
+    if (input.name === "confirmPassword") {
+      return { ...input, pattern: values.password };
+    }
+    return input;
+  });
 
   return (
     <div className="app">
       <form onSubmit={handleSubmit}>
         <h1>Register</h1>
-        {inputs.map((input) => (
+        {updatedInputs.map((input) => (
           <FormInput
             key={input.name}
             {...input}
