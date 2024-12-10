@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+# Form Validation Using Regex Patterns
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates how to create a simple form with client-side validation using React. The form includes multiple fields such as username, email, password, and confirm password, with validation rules enforced using regular expressions (regex).
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Username Validation**: The username must be between 3 and 16 characters long and contain only letters and numbers.
+- **Email Validation**: Ensures the email is in a valid format.
+- **Password Validation**: The password must contain at least 8 characters, including one letter, one number, and one special character.
+- **Confirm Password**: Confirms that the password matches the confirmation field.
+- **Client-Side Validation**: Uses regular expressions to validate input fields before submission.
+- **Dynamic Validation**: The confirm password field dynamically uses the password value to ensure they match.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: For static type checking and better development experience.
+- **CSS/SCSS**: For styling the form and application.
+- **Regular Expressions (Regex)**: Used for form validation.
 
-- Configure the top-level `parserOptions` property like this:
+## Setup
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerequisites
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Make sure you have the following installed:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- [Node.js](https://nodejs.org/) (LTS version)
+- [npm](https://www.npmjs.com/)
