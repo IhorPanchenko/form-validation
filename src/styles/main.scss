@@ -1,4 +1,6 @@
-/* Reset styles */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap");
+
+/* RESET STYLES */
 *,
 *::before,
 *::after {
@@ -7,27 +9,37 @@
   box-sizing: border-box;
 }
 
+/* TYPOGRAPHY AND GLOBAL SETTINGS */
 html {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.2)
-    ),
+  font-family: "Roboto", Arial, sans-serif;
+  color: #ffffff;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../assets/main-bg.jpg");
   background-size: cover;
   background-position: center;
-  color: #000;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* ELEMENT STYLES */
 a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #f1c40f;
+  }
 }
 
 ul,
@@ -38,4 +50,15 @@ ol {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  html {
+    font-size: 0.8rem;
+  }
+
+  body {
+    background-position: top center;
+  }
 }

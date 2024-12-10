@@ -1,32 +1,51 @@
 .formInput {
   display: flex;
   flex-direction: column;
-  width: 18rem;
+  width: 100%;
+  min-width: 22rem;
 
   label {
-    font-size: 1rem;
-    color: gray;
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-family: "Poppins", sans-serif;
   }
 
   input {
-    padding: 1rem;
+    padding: 0.8rem;
     margin: 0.6rem 0;
-    border-radius: 0.3rem;
-    border: 1px solid gray;
+    border-radius: 0.4rem;
+    border: 1px solid #d1d5db;
+    font-size: 1rem;
+    color: #1e293b;
+    background-color: #f9fafb;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
-    &:invalid {
-      border-color: red;
+    &:focus {
+      border-color: #1e3a8a;
+      box-shadow: 0 0 4px rgba(30, 58, 138, 0.5);
     }
 
-    &:invalid + span {
+    &:invalid[data-focused="true"] {
+      border-color: #e11d48;
+    }
+
+    &:invalid[data-focused="true"] + span {
       display: block;
     }
   }
 
   span {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    color: #e11d48;
+    margin-top: -0.5rem;
     padding: 0.2rem;
-    color: red;
     display: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: none;
   }
 }

@@ -1,10 +1,18 @@
 import FormInput from "./components/FormInput";
 import "../src/styles/app.scss";
 import { inputs } from "./formInputs";
-import { useState, FC, FormEvent, ChangeEvent } from "react";
+import { useState, useMemo, FC, FormEvent, ChangeEvent } from "react";
+
+type FormValues = {
+  username: string;
+  email: string;
+  birthday: string;
+  password: string;
+  confirmPassword: string;
+};
 
 const App: FC = () => {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<FormValues>({
     username: "",
     email: "",
     birthday: "",
@@ -14,6 +22,22 @@ const App: FC = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    const errors = updatedInputs.map((input) =>
+      validateInput(input.name, values[input.name as keyof FormValues])
+    );
+    if (errors.some((error) => error)) {
+      alert("Please fix errors before submitting.");
+      return;
+    }
+    alert("Form submitted successfully!");
+  };
+
+  const validateInput = (name: string, value: string): string => {
+    if (name === "confirmPassword" && value !== values.password) {
+      return "Passwords do not match!";
+    }
+    return "";
   };
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -21,12 +45,15 @@ const App: FC = () => {
   };
 
   // Dynamically set the pattern for confirmPassword based on values.password
-  const updatedInputs = inputs.map((input) => {
-    if (input.name === "confirmPassword") {
-      return { ...input, pattern: values.password };
-    }
-    return input;
-  });
+  const updatedInputs = useMemo(
+    () =>
+      inputs.map((input) =>
+        input.name === "confirmPassword"
+          ? { ...input, pattern: values.password }
+          : input
+      ),
+    [values.password]
+  );
 
   return (
     <div className="app">

@@ -2,16 +2,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  padding: 1rem;
 
   form {
-    background-color: #ffffff;
-    padding: 0 3.5rem;
-    border-radius: 0.6rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
 
     h1 {
-      color: #00008b;
+      color: #1e3a8a;
       text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-family: "Poppins", sans-serif;
     }
 
     button {
@@ -19,13 +25,24 @@
       height: 3rem;
       padding: 0.6rem;
       border: none;
-      background-color: #00008b;
+      background-color: #1e3a8a;
       color: #ffffff;
-      border-radius: 0.3rem;
+      border-radius: 0.4rem;
       font-weight: bold;
       font-size: 1rem;
       cursor: pointer;
-      margin: 1rem 0 2rem;
+      margin: 1.5rem 0 0;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: #1d4ed8;
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        background-color: #102a6b;
+        transform: translateY(0);
+      }
     }
   }
 }

@@ -36,7 +36,7 @@ export const inputs: InputField[] = [
   },
   {
     name: "password",
-    type: "text",
+    type: "password",
     placeholder: "Password",
     errorMessage:
       "Password should be 8-20 characters and include at least 1 letter, 1 number, and 1 special character!",
